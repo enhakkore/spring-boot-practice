@@ -1,10 +1,12 @@
 spring:
   main:
     show-banner: false
-
 logging:
   path: /home/chihyun/git/
   file: BookWorm.log
   level:
     root: WARN
     org.springframework.security: DEBUG
+
+amazon:
+  associateId: habuma-20
