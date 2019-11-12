@@ -1,4 +1,6 @@
 package readinglist;
 
-public interface ReaderRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReaderRepository extends JpaRepository<Reader, String> {
 }
