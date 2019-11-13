@@ -1,3 +1,5 @@
+>  공부한 책 : [Spring boot in action(한국어판)](https://thebook.io/006859/), [Spring boot in action](https://github.com/Innsmounth/JavaEBooks/blob/master/Spring%20Boot%20in%20Action.pdf)
+
 * @SpringBootTest -> [관련 글1](https://meetup.toast.com/posts/124), [관련 글2](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-testing)
 
 * SpringRunner is an alias for the SpringJUnit4ClassRunner. -> [관련 글](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/context/junit4/SpringRunner.html)  
@@ -34,4 +36,17 @@ Using generated security password: 25a41e4a-97de-4db8-a98f-6e1321a15acb
 
 * 스프링 시큐리티 자동 구성을 오버라이드할 때는 WebSecurityConfigureAdapter를 확장해서 구성 클래스를 작성한다. 자동 구성을 오버라이드하는 것을 사용자 정의 보안 구성 클래스를 선언하는 것이라고 하며, 이럴 경우 스프링 부트는 보안 자동 구성을 건너뛴 채 사용자 정의 보안 구성을 사용한다.  
 
-* readerRepository.findOne(username) -> readerRepository.findById(username).get()
+* readerRepository.findOne(username) -> readerRepository.findById(username).get()  
+
+* Spring boot 2 에서는 spring.main.show-banner=false -> spring.main.banner-mode="off"  
+
+* spring error response 기본 구성  
+```json
+{
+  "timestamp": "2019-02-15T21:48:44.447+0000",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/123"
+}
+```  
