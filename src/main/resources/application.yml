@@ -9,4 +9,4 @@ logging:
     org.springframework.security: DEBUG
 
 amazon:
-  associateId: habuma-20
+  associateId: yourId
