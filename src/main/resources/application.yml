@@ -1,11 +1,11 @@
 spring:
   main:
-    show-banner: false
+    banner-mode: "off"
 logging:
   path: /home/chihyun/git/
   file: BookWorm.log
   level:
-    root: WARN
+    root: DEBUG
     org.springframework.security: DEBUG
 
 amazon:
