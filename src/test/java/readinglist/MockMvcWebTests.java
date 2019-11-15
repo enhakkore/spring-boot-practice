@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -38,5 +39,18 @@ public class MockMvcWebTests {
                 .andExpect(MockMvcResultMatchers.view().name("readingList"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("books"))
                 .andExpect(MockMvcResultMatchers.model().attribute("books", Matchers.is(Matchers.empty())));
+    }
+
+    @Test
+    public void postBook() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        .param("title", "BOOK TITLE")
+                        .param("author", "BOOK AUTHOR")
+                        .param("isbn", "1234567890")
+                        .param("description", "DESCRIPTION"))
+                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.header().string("Location", "/"));
+
     }
 }
