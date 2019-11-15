@@ -52,5 +52,18 @@ public class MockMvcWebTests {
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
                 .andExpect(MockMvcResultMatchers.header().string("Location", "/"));
 
+        Book expectedBook = new Book();
+        expectedBook.setId(1L);
+        expectedBook.setAuthor("BOOK AUTHOR");
+        expectedBook.setTitle("BOOK TITLE");
+        expectedBook.setIsbn("1234567890");
+        expectedBook.setDescription("DESCRIPTION");
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.view().name("readingList"))
+                .andExpect(MockMvcResultMatchers.model().attributeExists("books"))
+                .andExpect(MockMvcResultMatchers.model().attribute("books", Matchers.hasSize(1)))
+                .andExpect(MockMvcResultMatchers.model().attribute("books", Matchers.contains(Matchers.samePropertyValuesAs(expectedBook))));
     }
 }
