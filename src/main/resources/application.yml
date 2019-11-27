@@ -2,11 +2,14 @@ spring:
   main:
     banner-mode: "off"
 logging:
-  path: /home/chihyun/git/
-  file: BookWorm.log
   level:
     root: DEBUG
     org.springframework.security: DEBUG
 
 amazon:
   associateId: yourId
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
